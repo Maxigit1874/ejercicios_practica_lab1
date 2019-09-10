@@ -4,10 +4,15 @@
 #define TAM 5
 
 void mostrarAlumnos( int leg[], int age[], char sex[], int n1[], int n2[], float prom[], int tam);
-void mostrarAlumno(int leg, int age, char sexo, int nota1, int nota2, float promedio);
+
+//void mostrarAlumno(int leg, int age, char sexo, int nota1, int nota2, float promedio);
+
+void ordenarAlumnos(int vec[], int tam);
+
+
 int main()
 {
-    int legajos[TAM] = {123, 432, 567, 879, 876};
+    int legajos[TAM] = {685, 332, 287, 879, 876};
     int edades[TAM] =  {21, 23, 20, 21, 30};
     char sexos[TAM] = {'f', 'f', 'm', 'f', 'm'};
     int notasp1[TAM] = {2, 4, 7, 8, 5};
@@ -36,6 +41,8 @@ int main()
     }*/
 
     mostrarAlumnos(legajos, edades, sexos, notasp1, notasp2, promedios, TAM);
+    ordenarAlumnos(legajos, TAM);
+    mostrarAlumnos(legajos, edades, sexos, notasp1, notasp2, promedios, TAM);
 
 
     return 0;
@@ -44,16 +51,42 @@ int main()
 void mostrarAlumnos( int leg[], int age[], char sex[], int n1[], int n2[], float prom[], int tam){
 
     printf(" Legajo  Edad  Sexo  Nota1  Nota2  Promedio\n\n");
+
     for(int i=0; i < tam; i++){
-      mostrarAlumno( leg[i], age[i], sex[i], n1[i], n2[i], prom[i]);
+
+    mostrarAlumno( leg[i], age[i], sex[i], n1[i], n2[i], prom[i]);
     }
     printf("\n\n");
 }
 
 
 
-void mostrarAlumno(int leg, int age, char sexo, int nota1, int nota2, float promedio){
+/*void mostrarAlumno(int leg, int age, char sexo, int nota1, int nota2, float promedio){
 
     printf("   %d     %d    %c     %d    %d     %.2f\n", leg, age, sexo, nota1, nota2, promedio);
+
+}
+*/
+
+
+void ordenarAlumnos(int vec[], int tam){
+
+    int aux;
+
+    for (int i = 0; i < TAM -1; i++ ){
+
+        for (int j = i + 1; j < TAM ; j++){
+
+            if(vec[j] < vec [i]){
+
+                aux = vec[j];
+                vec[j] = vec[i];
+                vec[i] = aux;
+            }
+        }
+
+    }
+
+
 
 }
